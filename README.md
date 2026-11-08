@@ -1,0 +1,1 @@
+# abap_doc_hierarchy_factory_pattern
