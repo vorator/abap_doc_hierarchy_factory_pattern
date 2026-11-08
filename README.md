@@ -24,6 +24,13 @@ This solution adheres to the **Open-Closed Principle (OCP)**. The core RAP trans
 * **Polymorphism in Action:** The transactional engine does not know whether it is validating an invoice or a credit note; it simply calls the interface contract.
 * **ABAP Cloud / Clean Core Ready:** Strict syntax (`strict ( 2 )`), entirely separated from classic SAP GUI dependencies.
 
+## 🧪 Test-Driven Development (ABAP Unit)
+By decoupling the validation logic from the RAP transactional buffer, the business rules become 100% unit-testable. The project includes local ABAP Unit test classes (`ltcl_factory_test`) that mock in-memory structures to automatically assert:
+* Positive amounts on standard Invoices (C) pass validation.
+* Negative amounts on Invoices (C) are strictly rejected.
+* Positive amounts on Credit Notes (D) are strictly rejected.
+* The Factory successfully raises `ZCX_OOP_DOC_EXCEPTION` when encountering an unsupported document indicator.
+
 ## 👨‍💻 About the Developer
 I am an IT Engineer and Software Developer specializing in SAP ABAP, S/4HANA architecture, and Java. 
 With a robust background integrating cross-border financial systems and ERPs (SAP, Navision, SAGE), I build resilient technical solutions grounded in deep business process understanding.
